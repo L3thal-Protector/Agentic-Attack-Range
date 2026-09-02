@@ -1,0 +1,10 @@
+index=agentic_ai sourcetype=_json
+| eval combined_text=coalesce(user_prompt,"") . " " . coalesce(final_answer,"") . " " . coalesce(observation,"") . " " . coalesce(thought_log,"")
+| where like(combined_text, "%Ignore previous restrictions%")
+   OR like(combined_text, "%SYSTEM INSTRUCTION%")
+   OR like(combined_text, "%Action Input: 2%")
+   OR like(combined_text, "%compliance validation mode%")
+   OR like(combined_text, "%boundary validation%")
+   OR like(combined_text, "%adjacent userId 2%")
+| eval detection_name="Suspicious Prompt Injection or Goal Hijack Marker"
+| table _time detection_name run_id event_type action action_input combined_text

@@ -1,0 +1,15 @@
+﻿.venv/
+.venv-garak/
+__pycache__/
+*.pyc
+transactions.db
+*.log
+.env
+.local/
+.streamlit/
+.DS_Store
+Thumbs.db
+claude_context/
+*.bak*
+*.broken_backup
+README_backup_*.md

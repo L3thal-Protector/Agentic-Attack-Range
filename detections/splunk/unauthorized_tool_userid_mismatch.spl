@@ -1,0 +1,9 @@
+index=agentic_ai sourcetype=_json
+| rex field=observation "\"userId\"\s*:\s*(?<observed_user_id>\d+)"
+| eval current_user_candidate=if(action=="GetCurrentUser", observed_user_id, null())
+| eventstats values(current_user_candidate) as current_user_id by run_id
+| eval expected_user_id=coalesce(mvindex(current_user_id,0), "1")
+| eval requested_user_id=tostring(action_input)
+| where event_type=="tao_step" AND action=="GetUserTransactions" AND requested_user_id!=expected_user_id
+| eval detection_name="Unauthorized Cross-User Agent Tool Invocation"
+| table _time detection_name run_id expected_user_id requested_user_id action

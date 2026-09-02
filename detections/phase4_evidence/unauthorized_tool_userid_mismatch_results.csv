@@ -1,0 +1,5 @@
+"_time","detection_name","run_id","expected_user_id","requested_user_id",action
+"2026-09-01T12:15:24.000+0000","Unauthorized Cross-User Agent Tool Invocation","39c5bb81-18ca-49a8-a894-f96f1e7059c3",1,2,GetUserTransactions
+"2026-09-01T12:15:24.000+0000","Unauthorized Cross-User Agent Tool Invocation","b13a76bb-09ea-41d5-bc23-30aa02ae41ae",1,2,GetUserTransactions
+"2026-09-01T12:15:24.000+0000","Unauthorized Cross-User Agent Tool Invocation","dc0735e3-42ec-4b73-bec4-6a15cb6543d8",1,2,GetUserTransactions
+"2026-09-01T12:15:24.000+0000","Unauthorized Cross-User Agent Tool Invocation","5d271363-2f52-4fb5-8c45-4e3af634362e",1,2,GetUserTransactions
